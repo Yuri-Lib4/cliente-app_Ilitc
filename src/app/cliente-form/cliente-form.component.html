@@ -1,0 +1,8 @@
+<form [formGroup]="clienteForm" (ngSubmit)="registrarCliente()">
+  <input formControlName="nombres" placeholder="Nombres">
+  <input formControlName="apellidoPaterno" placeholder="Apellido Paterno">
+  <input formControlName="apellidoMaterno" placeholder="Apellido Materno">
+  <input formControlName="correoElectronico" placeholder="Correo Electrónico">
+  <input formControlName="fechaNacimiento" type="date" placeholder="Fecha de Nacimiento">
+  <button type="submit">Registrar</button>
+</form>
