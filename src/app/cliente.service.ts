@@ -7,23 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class ClienteService {
 
-  private apiURL = 'http://localhost:8080/clientes';  // <-- Ajusta según tu backend
+  private baseURL = 'http://localhost:8080/clientes';  // <-- Ajusta según tu backend
 
   constructor(private http: HttpClient) { }
 
-  registrarCliente(cliente: any): Observable<any> {
-    return this.http.post(this.apiURL, cliente);
+  registrarCliente(cliente: ClienteService): Observable<any> {
+    return this.http.post(`${this.baseURL}/clientes`, cliente);
   }
 
-  obtenerClientes(): Observable<any> {
-    return this.http.get(this.apiURL);
+  listarClientes(): Observable<ClienteService[]> {
+    return this.http.get<ClienteService[]>(`${this.baseURL}/clientes`);
   }
 
-  actualizarCliente(cliente: any): Observable<any> {
-    return this.http.put(`${this.apiURL}/${cliente.id}`, cliente);
+  actualizarCliente(cliente: ClienteService): Observable<any> {
+    return this.http.put(`${this.baseURL}/clientes/${cliente.id}`, cliente);
   }
 
   eliminarCliente(id: number): Observable<any> {
-    return this.http.delete(`${this.apiURL}/${id}`);
+    return this.http.delete(`${this.baseURL}/clientes/${id}`);
   }
+
 }

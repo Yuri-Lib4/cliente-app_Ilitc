@@ -1,8 +1,49 @@
-<form [formGroup]="clienteForm" (ngSubmit)="registrarCliente()">
-  <input formControlName="nombres" placeholder="Nombres">
-  <input formControlName="apellidoPaterno" placeholder="Apellido Paterno">
-  <input formControlName="apellidoMaterno" placeholder="Apellido Materno">
-  <input formControlName="correoElectronico" placeholder="Correo Electrónico">
-  <input formControlName="fechaNacimiento" type="date" placeholder="Fecha de Nacimiento">
-  <button type="submit">Registrar</button>
+<h2>Mantenimiento de Cliente</h2>
+
+<form [formGroup]="clienteForm">
+
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-6">
+      <label>Nombres</label>
+      <input pInputText formControlName="nombres">
+    </div>
+
+    <div class="p-field p-col-6">
+      <label>Fecha Nacimiento</label>
+      <p-calendar formControlName="fechaNacimiento" dateFormat="dd/mm/yy"></p-calendar>
+    </div>
+
+    <div class="p-field p-col-6">
+      <label>Apellido Paterno</label>
+      <input pInputText formControlName="apellidoPaterno">
+    </div>
+
+    <div class="p-field p-col-6">
+      <label>Dirección</label>
+      <input pInputText formControlName="direccion">
+    </div>
+
+    <div class="p-field p-col-6">
+      <label>Apellido Materno</label>
+      <input pInputText formControlName="apellidoMaterno">
+    </div>
+
+    <div class="p-field p-col-6">
+      <label>Correo Electrónico</label>
+      <input pInputText formControlName="correoElectronico">
+    </div>
+
+    <div class="p-field p-col-12">
+      <label>Sexo</label>
+      <p-radioButton name="sexo" value="Masculino" formControlName="sexo" label="Masculino"></p-radioButton>
+      <p-radioButton name="sexo" value="Femenino" formControlName="sexo" label="Femenino"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-d-flex p-jc-between">
+    <button pButton type="button" label="Registrar" icon="pi pi-check" (click)="registrarCliente()"></button>
+    <button pButton type="button" label="Actualizar" icon="pi pi-pencil" (click)="actualizarCliente()"></button>
+    <button pButton type="button" label="Eliminar" icon="pi pi-trash" (click)="confirmarEliminar()"></button>
+  </div>
+
 </form>

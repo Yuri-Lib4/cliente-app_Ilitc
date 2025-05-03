@@ -15,11 +15,15 @@ export class ClienteFormComponent implements OnInit {
   ngOnInit() {
     this.clienteForm = this.fb.group({
       nombres: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
-      apellidoPaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
-      apellidoMaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
+      apellidoPaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      apellidoMaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      fechaNacimiento: ['', Validators.required],
+      direccion: ['', Validators.required],
       correoElectronico: ['', [Validators.required, Validators.email]],
-      fechaNacimiento: ['', Validators.required]
+      sexo: ['', Validators.required]
     });
+
+
   }
 
   registrarCliente() {
